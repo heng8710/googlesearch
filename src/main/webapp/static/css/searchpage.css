@@ -20,6 +20,11 @@
     	font-weight:bold;
     }
     
+    #result ul li p b{
+    	color: #FFAAFF
+    }
+    
+    
     
     #paging{
     	text-align: center;

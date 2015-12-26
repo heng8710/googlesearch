@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>search</title>
+    <link rel="stylesheet" href="/static/css/searchpage.css" media="screen" type="text/css" />
+  </head>
+  <body>
+  <p>
+	总共查到：${resultCount}条记录，当前第${currentPage}页
+</p>
+	<form class="form-wrapper cf" action="/search" >
+	    <input type="text" name="s" placeholder='${searchText}' value='${searchText}' required/>
+	    <button type="submit">搜索</button>
+	</form>
+
+
+<br/>
+
+<div id='result'>
+	<ul>
+		<#list items as item>
+			<li>
+				<p>${item.visibleUrl} - <a href='${item.unescapedUrl}' ><span class='itemtitle'>${item.title}</span></a></p>
+				<p>${item.content}</p>
+			</li>
+		</#list> 
+	</ul>	
+</div>
+
+
+<div id='paging'>
+	<#list pagingList as paging>
+		<span><a href='${paging.url}'>${paging.pageNum}</a></span>
+	</#list>
+</div>
+  </body>
+</html>

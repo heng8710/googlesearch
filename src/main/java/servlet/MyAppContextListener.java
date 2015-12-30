@@ -12,9 +12,9 @@ import javax.servlet.annotation.WebListener;
 @WebListener
 public class MyAppContextListener implements ServletContextListener {
 
-	private static String webRoot;
-	private static String webInfo;
-	private static String classpath;
+	private static volatile String webRoot;
+	private static volatile String webInfo;
+	private static volatile String classpath;
 	
 	
 	@Override

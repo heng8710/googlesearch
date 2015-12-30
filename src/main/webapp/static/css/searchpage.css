@@ -11,16 +11,16 @@
     
     
     
-    #result ul li{
-    	height: 66px;
+    #result article{
+    	/*height: 66px;*/
     }
     
-    #result ul li .itemtitle{
+    #result article .itemtitle{
     	color: #F0F010;
     	font-weight:bold;
     }
     
-    #result ul li p b{
+    #result article p b{
     	color: #FFAAFF
     }
     

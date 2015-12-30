@@ -6,8 +6,8 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 
 @ApplicationPath("search")
-public class MyApp extends ResourceConfig{
-	public MyApp() {
+public class SearchApp extends ResourceConfig{
+	public SearchApp() {
         packages("resource");
         
         //referer filter

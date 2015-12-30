@@ -21,14 +21,12 @@
 <br/>
 
 <div id='result'>
-	<ul>
 		<#list items as item>
-			<li>
+			<article>
 				<p>${item.visibleUrl} - <a href='${item.unescapedUrl}' ><span class='itemtitle'>${item.title}</span></a></p>
 				<p>${item.content}</p>
-			</li>
+			</article>
 		</#list> 
-	</ul>	
 </div>
 
 

@@ -1,20 +1,21 @@
-current_folder=`pwd`
-echo "$current_folder"
+
+CURRENT_FOLDER=`pwd`
+echo "$CURRENT_FOLDER"
 
 #源码存放的路径
-src_folder='/data/mvn/googlesearch'
-cd "$src_folder"
+SRC_FOLDER='/data/mvn/googlesearch'
+cd "$SRC_FOLDER"
 
 git pull
 
 mvn clean package
 
 cd target
-target_folder=`pwd`
+TARGET_FOLDER=`pwd`
 
 
 #tomcat存放的路径
-tomcat_folder='/home/ubuntu/data/tomcat/googlesearch.com'
+TOMCAT_FOLDER='/home/ubuntu/data/tomcat/googlesearch.com'
 
 
 #先关掉对应的tomcat应用进程
@@ -22,24 +23,26 @@ echo '关闭进程：\n'
 #ps -aux|grep tomcat| grep googlesearch
 #app_pid=$(ps -aux|grep tomcat| grep googlesearch| awk '{print $2}')
 #kill $app_pid
-shutdown_sh="$tomcat_folder/bin/shutdown.sh"
+SHUTDOWN_SH="$tomcat_folder/bin/shutdown.sh"
 
 #执行tomcat的shutdown.sh
-"$shutdown_sh"
+$SHUTDOWN_SH
 
 
 #运行时文件存放 的路径
-app_runtime_folder='/data/runapp/googlesearch.com'
+APP_RUNTIME_FOLDER='/data/runapp/googlesearch.com'
 #备份
-mv app_runtime_folder_bakup="$app_runtime_folder-`date+%Y%m%d-%H%M%S`"
+APP_RUNTIME_FOLDER_BACKUP="$APP_RUNTIME_FOLDER-`date+%Y%m%d-%H%M%S`"
+mv "$APP_RUNTIME_FOLDER" "$APP_RUNTIME_FOLDER_BACKUP"
 
-cp -R "$target_folder" "$app_runtime_folder"
-cd "$app_runtime_folder"
+cp -R "$TARGET_FOLDER" "$APP_RUNTIME_FOLDER"
+cd "$APP_RUNTIME_FOLDER"
 
 rm -Rf classes lib generated-sources generated-test-sources maven-archiver maven-status surefire-reports test-classes
 
 
-startup_sh="$tomcat_folder/bin/startup.sh"
+STARTUP_SH="$tomcat_folder/bin/startup.sh"
+$STARTUP_SH
 
 
 
